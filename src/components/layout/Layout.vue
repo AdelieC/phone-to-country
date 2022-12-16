@@ -5,7 +5,9 @@ import Footer from "./parts/Footer.vue";
 
 <template>
   <Header />
-  <main class="grow">
+  <main
+    class="grow flex px-20 lg:px-24 xl:px-40 2xl:px-60 py-10 lg:py-28 2xl:py-36"
+  >
     <slot />
   </main>
   <Footer />
