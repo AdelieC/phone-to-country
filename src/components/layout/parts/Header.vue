@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import LanguageSelect from "./LanguageSelect.vue";
 import { RouterLink } from "vue-router";
+import routes from "../../../router/routes";
 </script>
 
 <template>
@@ -15,12 +16,13 @@ import { RouterLink } from "vue-router";
       </p>
     </div>
     <nav class="flex gap-8 font-bold text-2xl uppercase">
-      <RouterLink to="/" exact-active-class="text-warning">{{
-        $t("nav.home")
-      }}</RouterLink>
-      <RouterLink to="/about" exact-active-class="text-warning">{{
-        $t("nav.about")
-      }}</RouterLink>
+      <RouterLink
+        v-for="route in routes"
+        :to="route.path"
+        exact-active-class="text-warning"
+      >
+        {{ $t(`nav.${route.name}`) }}
+      </RouterLink>
     </nav>
     <LanguageSelect />
   </header>
