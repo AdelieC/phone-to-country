@@ -1,0 +1,41 @@
+{
+  "app": {
+    "name": {
+      "neutral": "PHONE to",
+      "accent": "COUNTRY"
+    }
+  },
+  "language-select": {
+    "locale": "Locale"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About"
+  },
+  "home": {
+    "title": "Homepage",
+    "description": "Application to get user's country using his phone area code.",
+    "keywords": "localization, input, phone, phone area code, Vue 3, Vite"
+  },
+  "dial-code-input": {
+    "label": "Dial code",
+    "placeholder": "Ex : +44",
+    "hint": "Must start with a +.",
+    "error": "Please enter a valid dial code."
+  },
+  "country-select": {
+    "label": "Country",
+    "placeholder": "Select a country",
+    "hint": "Will be used to prefix you phone number.",
+    "error": "Please select a country."
+  },
+  "phone-input": {
+    "label": "Phone",
+    "placeholder": "Ex : 675442334",
+    "hint": "Your number without dial code. 0 at the beginning will be ignored",
+    "error": "Please enter a valid phone number."
+  },
+  "footer": {
+    "text": "Adélie Castel - 15/12/22"
+  }
+}

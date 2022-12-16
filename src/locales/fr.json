@@ -1,0 +1,41 @@
+{
+  "app": {
+    "name": {
+      "neutral": "PHONE TO",
+      "accent": "COUNTRY"
+    }
+  },
+  "language-select": {
+    "locale": "Langue"
+  },
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos"
+  },
+  "home": {
+    "title": "Page d'accueil",
+    "description": "Application pour récupérer le pays d'un utilisateur à partir de son indice téléphonique.",
+    "keywords": "localisation, input, téléphone, indice téléphonique, Vue 3, Vite"
+  },
+  "dial-code-input": {
+    "label": "Code de pays",
+    "placeholder": "Ex : +33",
+    "hint": "Doit commencer par un +.",
+    "error": "Entrez un code de pays valide."
+  },
+  "country-select": {
+    "label": "Pays",
+    "placeholder": "Select a country",
+    "hint": "Sera utilisé pour préfixer votre numéro.",
+    "error": "Veuillez sélectionner un pays."
+  },
+  "phone-input": {
+    "label": "Téléphone",
+    "placeholder": "Ex : 675442334",
+    "hint": "Votre numéro sans le code de votre pays",
+    "error": "Veuillez entrer un numéro de téléphone valide."
+  },
+  "footer": {
+    "text": "Adélie Castel - 15/12/22"
+  }
+}
