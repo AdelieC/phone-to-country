@@ -32,6 +32,15 @@ const routes = [
     component: () => import("../views/DoubleInputView.vue"),
     meta: { isNav: true },
   },
+  {
+    path: "/single-input",
+    name: "Single input",
+    // route level code-splitting
+    // this generates a separate chunk (About.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import("../views/SingleInputView.vue"),
+    meta: { isNav: true },
+  },
 ];
 
 export default routes;

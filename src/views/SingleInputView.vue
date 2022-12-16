@@ -1,9 +1,16 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import PrefixedPhoneNumberInput from "@/components/forms/fields/PrefixedPhoneNumberInput.vue";
+import FormBase from "@/components/forms/FormBase.vue";
+</script>
 
 <template>
-  <div
-    class="grow grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 justify-around max-w-4xl"
-  >
-    <slot />
-  </div>
+  <FormBase>
+    <template #number="{ countriesData, phoneData }">
+      <PrefixedPhoneNumberInput
+        name="prefixed-number-input"
+        :countries-data="countriesData"
+        :phoneData="phoneData"
+      />
+    </template>
+  </FormBase>
 </template>
