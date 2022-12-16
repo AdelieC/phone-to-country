@@ -4,6 +4,8 @@ import LanguageSelect from "./LanguageSelect.vue";
 import { RouterLink } from "vue-router";
 import routes from "../../../router/routes";
 
+const filteredRoutes = routes.filter((route) => route.meta.isNav);
+
 const toggleMenu = ref(false);
 const toggle = () => {
   toggleMenu.value = !toggleMenu.value;
@@ -25,11 +27,11 @@ const toggle = () => {
       class="hidden gap-8 font-bold xl:text-xl 2xl:text-2xl uppercase xl:flex"
     >
       <RouterLink
-        v-for="route in routes"
+        v-for="route in filteredRoutes"
         :to="route.path"
         exact-active-class="text-warning"
       >
-        {{ $t(`nav.${route.name}`) }}
+        {{ $t(`nav.${route.name}.nav-name`) }}
       </RouterLink>
     </nav>
     <LanguageSelect />
@@ -69,12 +71,12 @@ const toggle = () => {
         </svg>
       </button>
       <RouterLink
-        v-for="route in routes"
+        v-for="route in filteredRoutes"
         :to="route.path"
         exact-active-class="text-warning"
         class="hover:text-accent"
       >
-        {{ $t(`nav.${route.name}`) }}
+        {{ $t(`nav.${route.name}.nav-name`) }}
       </RouterLink>
     </nav>
   </header>

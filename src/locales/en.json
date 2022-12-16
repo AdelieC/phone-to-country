@@ -9,11 +9,23 @@
     "locale": "Locale"
   },
   "nav": {
-    "Home": "Home",
-    "About": "About",
-    "Select with input": "Select with input",
-    "Double input": "Double text input",
-    "Single input": "Single text input"
+    "Home": { "nav-name": "Home", "label": "", "description": "" },
+    "About": { "nav-name": "About", "label": "", "description": "" },
+    "Select with input": {
+      "nav-name": "Select with input",
+      "label": "Select with text input",
+      "description": "Select for the area code + text input for phone number"
+    },
+    "Double input": {
+      "nav-name": "Double input",
+      "label": "Double text input",
+      "description": "Text input for area code, text input for phone number"
+    },
+    "Single input": {
+      "nav-name": "Single input",
+      "label": "Single text input",
+      "description": "Single text input for phone number with prefix + API call"
+    }
   },
   "home": {
     "title": "Homepage",
@@ -61,7 +73,7 @@
       "error": "Please select a country."
     },
     "prefixed-number-input": {
-      "label": "Phone",
+      "label": "Phone with area code",
       "placeholder": "Ex : +44675442334",
       "hint": "Your number with dial code. 0 at the beginning will be ignored",
       "error": "Please enter a valid phone number with area code.",

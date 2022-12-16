@@ -9,11 +9,23 @@
     "locale": "Langue"
   },
   "nav": {
-    "Home": "Accueil",
-    "About": "À propos",
-    "Select with input": "Select code pays",
-    "Double input": "Double champs",
-    "Single input": "Champ avec API"
+    "Home": { "nav-name": "Accueil", "label": "", "description": "" },
+    "About": { "nav-name": "À propos", "label": "", "description": "" },
+    "Select with input": {
+      "nav-name": "Select code pays",
+      "label": "Select pays + champ",
+      "description": "Select pour le code pays + champ texte pour le reste du téléphone"
+    },
+    "Double input": {
+      "nav-name": "Double champs",
+      "label": "Double champ",
+      "description": "Champ texte pour le code pays, champ texte pour le reste du numéro"
+    },
+    "Single input": {
+      "nav-name": "Champ avec API",
+      "label": "Champ simple avec API externe",
+      "description": "Un seul champ texte pour code + téléphone"
+    }
   },
   "home": {
     "title": "Page d'accueil",
