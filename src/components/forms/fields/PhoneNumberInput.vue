@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import type { PropType } from "vue";
+import PhoneNumberProcessor from "@/utils/services/PhoneNumberProcessor";
 
 type CountryData = {
   name: string;
@@ -25,7 +26,10 @@ const props = defineProps({
 const handleChangeNumber = (event: Event) => {
   const el = event.target as HTMLInputElement;
   //todo : parse number
-  props.phoneData.number = el.value;
+  props.phoneData.number = PhoneNumberProcessor.removeCodeFromNumber(
+    el.value,
+    props.phoneData.code
+  );
 };
 </script>
 
