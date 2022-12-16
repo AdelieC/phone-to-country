@@ -1,7 +1,7 @@
 {
   "app": {
     "name": {
-      "neutral": "PHONE to",
+      "neutral": "PHONE TO",
       "accent": "COUNTRY"
     }
   },
@@ -9,31 +9,71 @@
     "locale": "Locale"
   },
   "nav": {
-    "home": "Home",
-    "about": "About"
+    "Home": "Home",
+    "About": "About",
+    "Select with input": "Select with input",
+    "Double input": "Double text input",
+    "Single input": "Single text input"
   },
   "home": {
     "title": "Homepage",
     "description": "Application to get user's country using his phone area code.",
     "keywords": "localization, input, phone, phone area code, Vue 3, Vite"
   },
-  "dial-code-input": {
-    "label": "Dial code",
-    "placeholder": "Ex : +44",
-    "hint": "Must start with a +.",
-    "error": "Please enter a valid dial code."
+  "about": {
+    "title": "About",
+    "intro": "La consigne initiale était : Mettre en place un composant dynamique permettant d’entrer un numéro de téléphone et de reconnaître le pays de celui-ci automatiquement (indicatif du numéro → exemple : +33). J'ai choisi de présenter plusieurs solutions correspondant à cette consigne.",
+    "select-section": {
+      "heading": "Sélection d'un identifiant de pays + champ de texte",
+      "text": "Il est virtuellement impossible sans base de données officielle de déduire le code du pays d'un numéro de téléphone, juste avec un algorithme. La solution la plus simple pour l'utilisateur, c'est donc de lui permettre de sélectionner son pays, puis de lui demander d'entre son numéro sans préfixe à côté. Les drapeaux et codes du select viennent d'un fichier json."
+    },
+    "double-input-section": {
+      "heading": "Deux champs textes, un pour le code du pays, l'autre pour le numéro",
+      "text": "La solution du select était aussi la plus simple pour moi : j'ai décidé de me compliquer la vie en laissant l'utilisateur entrer n'importe quoi comme code de pays et en traitant cette valeur. Elle est ensuite comparée avec les données du même fichier json que pour le select."
+    },
+    "single-input-section": {
+      "heading": "Un seul champ texte, un appel API",
+      "text": "La solution qui répond littéralement à la consigne, sans interprétation et sans vouloir améliorer l'UX, c'est de laisser l'utilisateur se débrouiller avec un seul champ, entrer son numéro AVEC préfixe, et le valider ou non en récupérant les données associées depuis une api. La seule api gratuite que j'ai trouvée qui n'implique pas de faire passer une clé privée dans du code client, c'est phone-number-api, mais elle devient payante lorsqu'on veut envoyer des requêtes ssl (https). Or, chrome déclenche une redirection interne de la requête de http vers https, en tout cas en local. Je n'ai pas le temps de trouver la solution à ce problème. Sur firefox, ça fonctionne chez moi."
+    },
+    "bonus": {
+      "heading": "Bonus",
+      "text": "Internationalisation (select pour changer de langage), style avec tailwindcss, modes sombres/clairs, github pour suivre l'avancement du projet. Vue router, navigation dynamique basée sur les routes déclarées dans le routeur."
+    },
+    "github-link": "Repo GitHub"
   },
-  "country-select": {
-    "label": "Country",
-    "placeholder": "Select a country",
-    "hint": "Will be used to prefix you phone number.",
-    "error": "Please select a country."
+  "fields": {
+    "number-input": {
+      "label": "Phone",
+      "placeholder": "Ex : 675442334",
+      "hint": "Your number without dial code. 0 at the beginning will be ignored",
+      "error": "Please enter a valid phone number."
+    },
+    "country-code-input": {
+      "label": "Dial code",
+      "placeholder": "Ex : +44",
+      "hint": "Must start with a +.",
+      "error": "Please enter a valid dial code."
+    },
+    "country-code-select": {
+      "label": "Country",
+      "placeholder": "Select a country",
+      "hint": "Will be used to prefix you phone number.",
+      "error": "Please select a country."
+    },
+    "prefixed-number-input": {
+      "label": "Phone",
+      "placeholder": "Ex : +44675442334",
+      "hint": "Your number with dial code. 0 at the beginning will be ignored",
+      "error": "Please enter a valid phone number with area code.",
+      "api-error": "Essayez avec un autre navigateur. Celui-ci envoie probablement la requête en https, et l'api est payante pour les requêtes ssl... (cf. console)"
+    }
   },
-  "phone-input": {
-    "label": "Phone",
-    "placeholder": "Ex : 675442334",
-    "hint": "Your number without dial code. 0 at the beginning will be ignored",
-    "error": "Please enter a valid phone number."
+  "results": {
+    "empty": "No data yet",
+    "country-name": "Your country",
+    "country-id": "Country's id",
+    "code": "Country's code",
+    "number": "Your number"
   },
   "footer": {
     "text": "Adélie Castel - 15/12/22"

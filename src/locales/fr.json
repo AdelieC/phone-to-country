@@ -34,7 +34,12 @@
     "single-input-section": {
       "heading": "Un seul champ texte, un appel API",
       "text": "La solution qui répond littéralement à la consigne, sans interprétation et sans vouloir améliorer l'UX, c'est de laisser l'utilisateur se débrouiller avec un seul champ, entrer son numéro AVEC préfixe, et le valider ou non en récupérant les données associées depuis une api. La seule api gratuite que j'ai trouvée qui n'implique pas de faire passer une clé privée dans du code client, c'est phone-number-api, mais elle devient payante lorsqu'on veut envoyer des requêtes ssl (https). Or, chrome déclenche une redirection interne de la requête de http vers https, en tout cas en local. Je n'ai pas le temps de trouver la solution à ce problème. Sur firefox, ça fonctionne chez moi."
-    }
+    },
+    "bonus": {
+      "heading": "Bonus",
+      "text": "Internationalisation (select pour changer de langage), style avec tailwindcss, modes sombres/clairs, github pour suivre l'avancement du projet. Vue router, navigation dynamique basée sur les routes déclarées dans le routeur."
+    },
+    "github-link": "Repo GitHub"
   },
   "fields": {
     "number-input": {
@@ -60,8 +65,15 @@
       "placeholder": "Ex : +33675442334",
       "hint": "Votre numéro avec le préfixe de votre pays.",
       "error": "Veuillez entrer un numéro de téléphone valide avec préfixe.",
-      "api-error": "Essayez avec un autre navigateur. Celui-ci envoie probablement la requête en https, et l'api est payante pour les requêtes ssl..."
+      "api-error": "Essayez avec un autre navigateur. Celui-ci envoie probablement la requête en https, et l'api est payante pour les requêtes ssl... (cf. console)"
     }
+  },
+  "results": {
+    "empty": "Pas encore de valeur",
+    "country-name": "Votre pays",
+    "country-id": "Identifiant du pays",
+    "code": "Code du pays",
+    "number": "Votre numéro"
   },
   "footer": {
     "text": "Adélie Castel - 15/12/22"

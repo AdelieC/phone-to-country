@@ -3,20 +3,8 @@ import { ref } from "vue";
 import type { PropType } from "vue";
 import fetchApiPhoneData from "@/utils/api/fetchApiPhoneData";
 import PhoneNumberProcessor from "@/utils/services/PhoneNumberProcessor";
-
-type CountryData = {
-  name: string;
-  dial_code: string;
-  code: string;
-  flag: string;
-};
-
-type PhoneData = {
-  countryName: string;
-  countryId: string;
-  code: string;
-  number: string;
-};
+import type { CountryData } from "../types/CountryData";
+import type { PhoneData } from "../types/PhoneData";
 
 const apiError = ref("");
 

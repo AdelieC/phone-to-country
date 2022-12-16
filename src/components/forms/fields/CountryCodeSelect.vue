@@ -1,20 +1,8 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import type { PropType } from "vue";
-
-type PhoneData = {
-  countryName: string;
-  countryId: string;
-  code: string;
-  number: string;
-};
-
-type CountryData = {
-  name: string;
-  dial_code: string;
-  code: string;
-  flag: string;
-};
+import type { CountryData } from "../types/CountryData";
+import type { PhoneData } from "../types/PhoneData";
 
 const props = defineProps({
   phoneData: { type: Object as PropType<PhoneData>, required: true },
@@ -40,17 +28,19 @@ const handleChangeCountryData = (event: Event) => {
 };
 </script>
 <template>
-  <label>{{ $t(`fields.${name}.label`) }}</label>
-  <select
-    :placeholder="$t(`fields.${name}.placeholder`)"
-    @change="handleChangeCountryData"
-  >
-    <option
-      v-for="item in countriesData"
-      :value="item.dial_code"
-      :key="item.code"
+  <fieldset>
+    <label>{{ $t(`fields.${name}.label`) }}</label>
+    <select
+      :placeholder="$t(`fields.${name}.placeholder`)"
+      @change="handleChangeCountryData"
     >
-      {{ item.flag }} {{ item.dial_code }}
-    </option>
-  </select>
+      <option
+        v-for="item in countriesData"
+        :value="item.dial_code"
+        :key="item.code"
+      >
+        {{ item.flag }} {{ item.dial_code }}
+      </option>
+    </select>
+  </fieldset>
 </template>

@@ -1,1 +1,16 @@
 @import "./base.css";
+
+@layer base {
+  fieldset {
+    @apply flex flex-col gap-2;
+  }
+  label {
+    @apply font-display;
+  }
+  input {
+    @apply shadow appearance-none rounded w-full py-2 px-3 text-secondary-dark leading-tight;
+  }
+  select {
+    @apply appearance-none w-full text-secondary-dark py-2 px-3 rounded leading-tight focus:outline-none;
+  }
+}

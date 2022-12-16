@@ -1,21 +1,9 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import type { PropType } from "vue";
+import type { CountryData } from "../types/CountryData";
+import type { PhoneData } from "../types/PhoneData";
 import PhoneNumberProcessor from "@/utils/services/PhoneNumberProcessor";
-
-type CountryData = {
-  name: string;
-  dial_code: string;
-  code: string;
-  flag: string;
-};
-
-type PhoneData = {
-  countryName: string;
-  countryId: string;
-  code: string;
-  number: string;
-};
 
 const props = defineProps({
   phoneData: { type: Object as PropType<PhoneData>, required: true },
@@ -25,8 +13,15 @@ const props = defineProps({
 
 const handleChangeNumber = (event: Event) => {
   const el = event.target as HTMLInputElement;
-  //todo : parse number
   props.phoneData.number = PhoneNumberProcessor.removeCodeFromNumber(
+    el.value,
+    props.phoneData.code
+  );
+};
+
+const formatPhoneNumber = (event: Event) => {
+  const el = event.target as HTMLInputElement;
+  el.value = PhoneNumberProcessor.removeCodeFromNumber(
     el.value,
     props.phoneData.code
   );
@@ -34,12 +29,15 @@ const handleChangeNumber = (event: Event) => {
 </script>
 
 <template>
-  <label>{{ $t(`fields.${name}.label`) }}</label>
-  <input
-    name="phone"
-    type="tel"
-    @input="handleChangeNumber"
-    required
-    :placeholder="$t(`fields.${name}.placeholder`)"
-  />
+  <fieldset>
+    <label>{{ $t(`fields.${name}.label`) }}</label>
+    <input
+      name="phone"
+      type="tel"
+      @input="handleChangeNumber"
+      @blur="formatPhoneNumber"
+      required
+      :placeholder="$t(`fields.${name}.placeholder`)"
+    />
+  </fieldset>
 </template>
