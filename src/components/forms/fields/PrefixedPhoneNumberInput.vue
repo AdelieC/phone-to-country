@@ -1,17 +1,16 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import type { PropType } from "vue";
-import fetchApiPhoneData from "@/utils/api/fetchApiPhoneData";
+import fetchApiPhoneData, { APIS } from "@/utils/api/fetchApiPhoneData";
 import PhoneNumberProcessor from "@/utils/services/PhoneNumberProcessor";
 import type { CountryData } from "../types/CountryData";
 import type { PhoneData } from "../types/PhoneData";
 
-const apiError = ref("");
-const APIS = ["number-verification", "phone-number"];
+const apiFailure = ref(false);
+const invalidNumber = ref(false);
+const APIsList = Object.keys(APIS);
 
-const currentApi = ref<"number-verification" | "phone-number">(
-  "number-verification"
-);
+const currentApi = ref(APIsList[0]);
 
 const props = defineProps({
   phoneData: { type: Object as PropType<PhoneData>, required: true },
@@ -23,8 +22,13 @@ const handleChangePhoneData = async (event: Event) => {
   const el = event.target as HTMLInputElement;
   if (PhoneNumberProcessor.validateNumberWithPrefix(el.value)) {
     const data = await fetchApiPhoneData(el.value, currentApi.value);
-    if (data?.countryName) {
-      console.log(data);
+    if (!data) {
+      apiFailure.value = true;
+      return;
+    }
+    if (data?.ok) {
+      apiFailure.value = false;
+      invalidNumber.value = false;
       props.phoneData.code = data.countryCode;
       props.phoneData.countryId = data.countryId;
       props.phoneData.countryName = data.countryName;
@@ -33,6 +37,8 @@ const handleChangePhoneData = async (event: Event) => {
         props.phoneData.code
       );
     } else {
+      apiFailure.value = false;
+      invalidNumber.value = true;
       props.phoneData.code = "";
       props.phoneData.countryId = "";
       props.phoneData.countryName = "";
@@ -46,7 +52,7 @@ const handleChangePhoneData = async (event: Event) => {
   <div class="flex flex-col gap-4 items-start">
     <div class="flex gap-4">
       <button
-        v-for="api in APIS"
+        v-for="api in APIsList"
         :class="currentApi === api ? 'text-warning' : ''"
         class="border-b-2"
         @click="() => (currentApi = api)"
@@ -63,9 +69,12 @@ const handleChangePhoneData = async (event: Event) => {
         required
         :placeholder="$t(`fields.${name}.placeholder`)"
       />
+      <p :class="invalidNumber ? 'block' : 'hidden'" class="text-accent">
+        {{ $t(`fields.${name}.error`) }}
+      </p>
     </fieldset>
   </div>
-  <p class="text-xl text-accent font-bold text-center" v-if="apiError">
+  <p class="text-xl text-accent font-bold text-center" v-if="apiFailure">
     {{ $t(`fields.${name}.api-error`) }}
   </p>
 </template>

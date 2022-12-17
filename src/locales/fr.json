@@ -78,7 +78,7 @@
       "placeholder": "Ex : +33675442334",
       "hint": "Votre numéro avec le préfixe de votre pays.",
       "error": "Veuillez entrer un numéro de téléphone valide avec préfixe.",
-      "api-error": "Essayez avec un autre navigateur. Celui-ci envoie probablement la requête en https, et l'api est payante pour les requêtes ssl... (cf. console)"
+      "api-error": "La requête a échoué. Vérifiez la console..."
     }
   },
   "results": {

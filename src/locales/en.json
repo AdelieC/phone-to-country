@@ -78,7 +78,7 @@
       "placeholder": "Ex : +44675442334",
       "hint": "Your number with dial code. 0 at the beginning will be ignored",
       "error": "Please enter a valid phone number with area code.",
-      "api-error": "Essayez avec un autre navigateur. Celui-ci envoie probablement la requête en https, et l'api est payante pour les requêtes ssl... (cf. console)"
+      "api-error": "Api error. Check console..."
     }
   },
   "results": {

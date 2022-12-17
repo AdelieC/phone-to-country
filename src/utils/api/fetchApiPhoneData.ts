@@ -5,24 +5,30 @@ const numberVerificationApiKey = import.meta.env
   .VITE_NUMBER_VERIFICATION_API_KEY;
 
 const parsePhoneNumberApiResponse = (res: any) => {
-  return {
-    countryCode: res.numberCountryCode ? `+${res.numberCountryCode}` : "",
-    countryName: res.countryName || "",
-    countryId: res.country || "",
-    number: res.query || "",
-  };
+  return res.status !== "success"
+    ? { ok: false }
+    : {
+        ok: true,
+        countryCode: res.numberCountryCode ? `+${res.numberCountryCode}` : "",
+        countryName: res.countryName || "",
+        countryId: res.country || "",
+        number: res.query || "",
+      };
 };
 
 const parseNumberVerificationApiResponse = (res: any) => {
-  return {
-    countryCode: res.country_prefix || "",
-    countryName: res.country_name || "",
-    countryId: res.country_code || "",
-    number: res.local_format || "",
-  };
+  return res.valid
+    ? {
+        ok: true,
+        countryCode: res.country_prefix || "",
+        countryName: res.country_name || "",
+        countryId: res.country_code || "",
+        number: res.local_format || "",
+      }
+    : { ok: false };
 };
 
-const APIS = {
+export const APIS = {
   "number-verification": {
     url: numberVerificationApiUrl,
     config: { headers: { apikey: numberVerificationApiKey } },
@@ -35,15 +41,16 @@ const APIS = {
   },
 };
 
-const fetchApiPhoneData = async (
-  number: string,
-  api: "number-verification" | "phone-number"
-) => {
-  const queryUrl = APIS?.[api]?.url;
+const fetchApiPhoneData = async (number: string, api: string) => {
   try {
-    const res = await fetch(`${queryUrl}${number}`, APIS[api].config);
+    if (!(api in APIS)) throw new Error("Api name is missing or doesn't exist");
+    const currentAPI = APIS?.[api as "number-verification" | "phone-number"];
+    const queryUrl = currentAPI?.url;
+    if (!queryUrl) throw new Error(`Missing url in .env for api ${api}`);
+    const res = await fetch(`${queryUrl}${number}`, currentAPI.config);
     const json = await res.json();
-    return APIS[api].parsingFunction(json);
+    if (json.error) throw new Error(json.error);
+    return currentAPI.parsingFunction(json);
   } catch (error) {
     console.error(error);
     return null;
