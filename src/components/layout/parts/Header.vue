@@ -51,7 +51,7 @@ const toggle = () => {
 
     <nav
       :class="toggleMenu ? 'flex' : 'hidden'"
-      class="bg-primary-light h-screen p-8 fixed top-0 right-0 flex-col justify-around gap-8 space-y-4 font-bold text-xl items-end shadow-2xl"
+      class="bg-primary-light dark:bg-primary-dark h-screen p-8 fixed top-0 right-0 flex-col justify-around gap-8 space-y-4 font-bold text-xl items-end shadow-2xl"
     >
       <button @click="toggle">
         <svg

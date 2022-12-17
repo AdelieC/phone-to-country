@@ -7,6 +7,11 @@ import type { CountryData } from "../types/CountryData";
 import type { PhoneData } from "../types/PhoneData";
 
 const apiError = ref("");
+const APIS = ["number-verification", "phone-number"];
+
+const currentApi = ref<"number-verification" | "phone-number">(
+  "number-verification"
+);
 
 const props = defineProps({
   phoneData: { type: Object as PropType<PhoneData>, required: true },
@@ -17,12 +22,11 @@ const props = defineProps({
 const handleChangePhoneData = async (event: Event) => {
   const el = event.target as HTMLInputElement;
   if (PhoneNumberProcessor.validateNumberWithPrefix(el.value)) {
-    const data = await fetchApiPhoneData(el.value);
-    if (data.error) apiError.value = data.error;
+    const data = await fetchApiPhoneData(el.value, currentApi.value);
     if (data?.countryName) {
       console.log(data);
-      props.phoneData.code = `+${data.countryCode}`;
-      props.phoneData.countryId = data.country;
+      props.phoneData.code = data.countryCode;
+      props.phoneData.countryId = data.countryId;
       props.phoneData.countryName = data.countryName;
       props.phoneData.number = PhoneNumberProcessor.removeCodeFromNumber(
         el.value,
@@ -39,15 +43,27 @@ const handleChangePhoneData = async (event: Event) => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-2 items-start">
-    <label>{{ $t(`fields.${name}.label`) }}</label>
-    <input
-      name="phone"
-      type="tel"
-      @input="handleChangePhoneData"
-      required
-      :placeholder="$t(`fields.${name}.placeholder`)"
-    />
+  <div class="flex flex-col gap-4 items-start">
+    <div class="flex gap-4">
+      <button
+        v-for="api in APIS"
+        :class="currentApi === api ? 'text-warning' : ''"
+        class="border-b-2"
+        @click="() => (currentApi = api)"
+      >
+        {{ $t(`fields.${name}.choose-api`) }} {{ api }}
+      </button>
+    </div>
+    <fieldset>
+      <label>{{ $t(`fields.${name}.label`) }}</label>
+      <input
+        name="phone"
+        type="tel"
+        @input="handleChangePhoneData"
+        required
+        :placeholder="$t(`fields.${name}.placeholder`)"
+      />
+    </fieldset>
   </div>
   <p class="text-xl text-accent font-bold text-center" v-if="apiError">
     {{ $t(`fields.${name}.api-error`) }}

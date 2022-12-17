@@ -73,6 +73,7 @@
       "error": "Veuillez sélectionner un pays."
     },
     "prefixed-number-input": {
+      "choose-api": "Avec l'API",
       "label": "Téléphone (avec préfixe)",
       "placeholder": "Ex : +33675442334",
       "hint": "Votre numéro avec le préfixe de votre pays.",

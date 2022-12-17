@@ -73,6 +73,7 @@
       "error": "Please select a country."
     },
     "prefixed-number-input": {
+      "choose-api": "With API",
       "label": "Phone with area code",
       "placeholder": "Ex : +44675442334",
       "hint": "Your number with dial code. 0 at the beginning will be ignored",
