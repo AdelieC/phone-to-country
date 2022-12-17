@@ -1,53 +1,24 @@
-# phone-to-country
+#Description
+Had fun making this little project with vue 3 and vite. It was a recrutement test, initially, but somewhere, somehow, I decided to have fun cause I had 24 hours to complete what would probably have taken me 2 hours top. They said to be creative...
 
-This template should help get you started developing with Vue 3 in Vite.
+#Features
 
-## Recommended IDE Setup
+- dynamic routing and nav links
+- i18n and select language button
+- responsiveness - mostly
+- 5 pages :
+  ** home
+  ** about
+  ** one page to select phone area code from a json file in a select field
+  ** one page to enter phone area code in a text field and check it using the json file
+  \*\* one page to check phone number validity with a chosen api and send back phone area code and country data as well as phone number validity.
+- dark/light modes with tailwindcss
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Note : initially wanted to add tests with vitest but did not take the time. Not very good of me. sorry!
 
-## Type Support for `.vue` Imports in TS
+#Local setup
+yarn
+yarn dev (for development)
+yarn built && yarn preview (for previewing prod)
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
-# phone-to-country
+(There is still refactoring left to do, probably better ways to do things. Was a very rapidly built project. Won't have time to come back to it again.)
