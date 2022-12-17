@@ -3,6 +3,9 @@ import { ref } from "vue";
 import LanguageSelect from "./LanguageSelect.vue";
 import { RouterLink } from "vue-router";
 import routes from "../../../router/routes";
+import useClickOutside from "@/utils/hooks/useClickOutside";
+
+const header = ref(null);
 
 const filteredRoutes = routes.filter((route) => route.meta.isNav);
 
@@ -10,10 +13,13 @@ const toggleMenu = ref(false);
 const toggle = () => {
   toggleMenu.value = !toggleMenu.value;
 };
+
+useClickOutside(header, () => toggleMenu.value && toggle());
 </script>
 
 <template>
   <header
+    ref="header"
     class="w-screen flex gap-8 items-center justify-between p-8 font-display relative"
   >
     <div class="flex gap-4 items-center justify-between">
