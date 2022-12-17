@@ -71,9 +71,6 @@ const handleChangePhoneData = async (event: Event) => {
         required
         :placeholder="$t(`fields.${name}.placeholder`)"
       />
-      <p :class="invalidNumber ? 'block' : 'hidden'" class="text-accent">
-        {{ $t(`fields.${name}.error`) }}
-      </p>
       <Hint :input-name="name" />
       <Error v-show="invalidNumber" :input-name="name" />
       <Error v-show="apiFailure" :input-name="name" error-key="api-error" />
