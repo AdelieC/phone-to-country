@@ -1,6 +1,8 @@
 #Description
 Had fun making this little project with vue 3 and vite. It was a recrutement test, initially, but somewhere, somehow, I decided to have fun cause I had 24 hours to complete what would probably have taken me 2 hours top. They said to be creative...
 
+--> [:sparkles: View app live!](https://adeliec.github.io/phone-to-country/) <--
+
 #Features
 
 - dynamic routing and nav links
