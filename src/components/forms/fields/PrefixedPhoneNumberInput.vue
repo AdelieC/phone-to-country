@@ -5,6 +5,8 @@ import fetchApiPhoneData, { APIS } from "@/utils/api/fetchApiPhoneData";
 import PhoneNumberProcessor from "@/utils/services/PhoneNumberProcessor";
 import type { CountryData } from "../types/CountryData";
 import type { PhoneData } from "../types/PhoneData";
+import Hint from "./parts/Hint.vue";
+import Error from "./parts/Error.vue";
 
 const apiFailure = ref(false);
 const invalidNumber = ref(false);
@@ -72,9 +74,9 @@ const handleChangePhoneData = async (event: Event) => {
       <p :class="invalidNumber ? 'block' : 'hidden'" class="text-accent">
         {{ $t(`fields.${name}.error`) }}
       </p>
+      <Hint :input-name="name" />
+      <Error v-show="invalidNumber" :input-name="name" />
+      <Error v-show="apiFailure" :input-name="name" error-key="api-error" />
     </fieldset>
   </div>
-  <p class="text-xl text-accent font-bold text-center" v-if="apiFailure">
-    {{ $t(`fields.${name}.api-error`) }}
-  </p>
 </template>
