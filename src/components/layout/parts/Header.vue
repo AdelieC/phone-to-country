@@ -20,7 +20,7 @@ useClickOutside(header, () => toggleMenu.value && toggle());
 <template>
   <header
     ref="header"
-    class="w-screen flex gap-8 items-center justify-between p-8 font-display relative"
+    class="w-screen flex gap-4 lg:gap-8 items-center justify-between px-8 py-4 lg:p-8 font-display relative"
   >
     <div class="flex gap-4 items-center justify-between">
       <img class="h-12 lg:h-16" alt="App logo" src="../../../assets/logo.svg" />
@@ -57,9 +57,9 @@ useClickOutside(header, () => toggleMenu.value && toggle());
 
     <nav
       :class="toggleMenu ? 'flex' : 'hidden'"
-      class="bg-primary-light dark:bg-primary-dark h-screen p-8 fixed top-0 right-0 flex-col justify-around gap-8 space-y-4 font-bold text-xl items-end shadow-2xl"
+      class="bg-primary-light dark:bg-primary-dark h-screen p-8 fixed top-0 right-0 flex-col justify-between gap-4 lg:gap-8 font-bold text-xl items-end shadow-2xl"
     >
-      <button @click="toggle">
+      <button @click="toggle" class="">
         <svg
           x="0px"
           y="0px"

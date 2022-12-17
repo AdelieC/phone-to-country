@@ -13,4 +13,7 @@
   select {
     @apply appearance-none w-full text-secondary-dark py-2 px-3 rounded leading-tight focus:outline-none;
   }
+  section {
+    @apply flex flex-col gap-4 lg:gap-8 text-justify;
+  }
 }

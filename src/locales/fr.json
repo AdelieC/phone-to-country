@@ -45,7 +45,7 @@
     },
     "single-input-section": {
       "heading": "Un seul champ texte, un appel API",
-      "text": "La solution qui répond littéralement à la consigne, sans interprétation et sans vouloir améliorer l'UX, c'est de laisser l'utilisateur se débrouiller avec un seul champ, entrer son numéro AVEC préfixe, et le valider ou non en récupérant les données associées depuis une api. La seule api gratuite que j'ai trouvée qui n'implique pas de faire passer une clé privée dans du code client, c'est phone-number-api, mais elle devient payante lorsqu'on veut envoyer des requêtes ssl (https). Or, chrome déclenche une redirection interne de la requête de http vers https, en tout cas en local. Je n'ai pas le temps de trouver la solution à ce problème. Sur firefox, ça fonctionne chez moi."
+      "text": "La solution qui répond littéralement à la consigne, sans interprétation et sans vouloir améliorer l'UX, c'est de laisser l'utilisateur se débrouiller avec un seul champ, entrer son numéro AVEC préfixe, et le valider ou non en récupérant les données associées depuis une api. La seule api gratuite que j'ai trouvée qui n'implique pas de faire passer une clé privée dans du code client, c'est phone-number-api, mais elle devient payante lorsqu'on veut envoyer des requêtes ssl (https). Or, chrome déclenche une redirection interne de la requête de http vers https, en tout cas en local. Je n'ai pas le temps de trouver la solution à ce problème. Sur firefox, ça fonctionne chez moi. Sinon, il y a l'api number-verify mais obligation de faire passer une clé privée dans la requête : pb de sécurité."
     },
     "bonus": {
       "heading": "Bonus",

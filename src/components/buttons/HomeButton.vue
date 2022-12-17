@@ -7,15 +7,16 @@ const props = defineProps({
 </script>
 <template>
   <button
-    class="p-8 bg-primary-dark dark:bg-primary-light rounded-xl text-2xl shadow-lg flex gap-10 flex-col items-center justify-center max-w-md"
+    class="p-8 bg-primary-dark dark:bg-primary-light rounded-xl text-2xl shadow-lg flex gap-4 lg:gap-10 flex-col items-center justify-center max-w-md"
     @click="$router.push(path)"
   >
     <span
-      class="text-3xl text-warning dark:text-accent font-display uppercase"
+      class="text-2xl lg:text-3xl text-warning dark:text-accent font-display uppercase"
       >{{ label }}</span
     >
-    <span class="text-xl text-primary-light dark:text-secondary-dark">{{
-      description
-    }}</span>
+    <span
+      class="text-lg lg:text-xl text-primary-light dark:text-secondary-dark"
+      >{{ description }}</span
+    >
   </button>
 </template>

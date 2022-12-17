@@ -51,12 +51,12 @@ const handleChangePhoneData = async (event: Event) => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-4 items-start">
-    <div class="flex gap-4">
+  <div class="flex h-full flex-col gap-10 items-stretch justify-around">
+    <div class="flex flex-col lg:flex-row gap-8 text-sm">
       <button
         v-for="api in APIsList"
         :class="currentApi === api ? 'text-warning' : ''"
-        class="border-b-2"
+        class="underline"
         @click="() => (currentApi = api)"
       >
         {{ $t(`fields.${name}.choose-api`) }} {{ api }}
